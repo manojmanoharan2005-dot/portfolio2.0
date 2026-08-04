@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manoj Kumar M | Space Portfolio</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
+    <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="bg-[#100521] text-white min-h-screen overflow-x-hidden selection:bg-purple-500/50">
 
-    <!-- Star Field Container -->
-    <div id="star-field" class="fixed inset-0 overflow-hidden pointer-events-none z-0"></div>
+    <!-- Global Cosmic Space Background Container -->
+    <div id="cosmic-space" class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- Layer 1: Animated Nebula Glow (Parallax Slowest) -->
+        <div id="nebula-layer" class="absolute inset-0 transition-transform duration-75 ease-out">
+            <div
+                class="absolute -top-[10%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-purple-900/20 blur-[120px] animate-nebula-pulse">
+            </div>
+            <div
+                class="absolute top-[40%] -right-[15%] w-[65vw] h-[65vw] rounded-full bg-pink-900/15 blur-[140px] animate-nebula-pulse-alt">
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[20%] w-[55vw] h-[55vw] rounded-full bg-indigo-900/25 blur-[130px] animate-nebula-pulse">
+            </div>
+        </div>
+
+        <!-- Layer 2: Twinkling Star Field (Parallax Medium) -->
+        <div id="star-field" class="absolute inset-0 transition-transform duration-100 ease-out"></div>
+
+        <!-- Layer 3: Floating Particles (Upward Drift) -->
+        <div id="particle-field" class="absolute inset-0"></div>
+
+        <!-- Layer 4: Global Shooting Stars / Meteors -->
+        <div id="meteor-field" class="absolute inset-0"></div>
+    </div>
 
     <!-- Main Content -->
     <div class="animate-fadeIn relative z-10">
@@ -34,6 +58,7 @@
                 <div class="hidden md:flex gap-8 text-sm font-medium text-gray-300">
                     <a href="#home" class="hover:text-purple-400 transition-colors">Home</a>
                     <a href="#about" class="hover:text-purple-400 transition-colors">About</a>
+                    <a href="#experience" class="hover:text-purple-400 transition-colors">Experience</a>
                     <a href="#skills" class="hover:text-purple-400 transition-colors">Skills</a>
                     <a href="#projects" class="hover:text-purple-400 transition-colors">Projects</a>
                     <a href="#contact" class="hover:text-purple-400 transition-colors">Contact</a>
@@ -52,15 +77,19 @@
                             Manoj Kumar M
                         </span>
                     </h2>
-                    <h3 class="text-xl md:text-2xl text-gray-300 font-light">Full Stack Developer | AI & ML Enthusiast</h3>
+                    <h3 class="text-xl md:text-2xl text-gray-300 font-light">Software Development Engineer (SDE)
+                        Aspirant</h3>
                     <p class="text-gray-400 max-w-md leading-relaxed">
-                        Building modern web apps and ML prototypes. I enjoy turning ideas into production code.
+                        Full-stack engineer passionate about backend development, scalable distributed systems, RESTful
+                        APIs, and building high-performance MERN & Flask applications.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="#projects" class="px-8 py-3 bg-[#8b5cf6] text-white rounded-lg hover:bg-[#7c3aed] transition-colors font-medium shadow-[0_0_20px_rgba(139,92,246,0.3)]">
+                        <a href="#projects"
+                            class="px-8 py-3 bg-[#8b5cf6] text-white rounded-lg hover:bg-[#7c3aed] transition-colors font-medium shadow-[0_0_20px_rgba(139,92,246,0.3)]">
                             View Projects
                         </a>
-                        <a href="#contact" class="px-8 py-3 border border-gray-600 text-white rounded-lg hover:bg-white/5 transition-colors font-medium">
+                        <a href="#contact"
+                            class="px-8 py-3 border border-gray-600 text-white rounded-lg hover:bg-white/5 transition-colors font-medium">
                             Contact Me
                         </a>
                     </div>
@@ -69,20 +98,32 @@
                 <!-- 3D Moon & Meteors -->
                 <div class="relative flex justify-center items-center h-full min-h-[400px]">
                     <!-- Meteor Shower Container -->
-                    <div id="meteor-shower" class="absolute w-[150%] h-[150%] -z-10 opacity-60 pointer-events-none"></div>
-                    
+                    <div id="meteor-shower" class="absolute w-[150%] h-[150%] -z-10 opacity-60 pointer-events-none">
+                    </div>
+
                     <!-- CSS Moon 3D -->
                     <div class="w-64 h-64 md:w-80 md:h-80 relative z-10 animate-float-slow group">
                         <!-- Glow effect -->
-                        <div class="absolute inset-0 bg-purple-500/20 rounded-full blur-[60px] group-hover:bg-purple-500/30 transition-all duration-500"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-purple-500/20 rounded-full blur-[60px] group-hover:bg-purple-500/30 transition-all duration-500">
+                        </div>
+
                         <!-- Moon Sphere -->
-                        <div class="w-full h-full rounded-full bg-gradient-to-br from-gray-100 via-gray-300 to-slate-600 shadow-[inset_-25px_-25px_50px_rgba(0,0,0,0.7)] relative overflow-hidden border border-white/10">
+                        <div
+                            class="w-full h-full rounded-full bg-gradient-to-br from-gray-100 via-gray-300 to-slate-600 shadow-[inset_-25px_-25px_50px_rgba(0,0,0,0.7)] relative overflow-hidden border border-white/10">
                             <!-- Craters -->
-                            <div class="absolute top-12 left-12 w-16 h-16 bg-black/10 rounded-full shadow-[inset_2px_2px_5px_rgba(0,0,0,0.4)]"></div>
-                            <div class="absolute top-1/2 left-1/4 w-8 h-8 bg-black/10 rounded-full shadow-[inset_1px_1px_3px_rgba(0,0,0,0.4)]"></div>
-                            <div class="absolute bottom-16 right-16 w-20 h-20 bg-black/10 rounded-full shadow-[inset_3px_3px_6px_rgba(0,0,0,0.4)]"></div>
-                            <div class="absolute top-10 right-20 w-6 h-6 bg-black/10 rounded-full shadow-[inset_1px_1px_2px_rgba(0,0,0,0.4)]"></div>
+                            <div
+                                class="absolute top-12 left-12 w-16 h-16 bg-black/10 rounded-full shadow-[inset_2px_2px_5px_rgba(0,0,0,0.4)]">
+                            </div>
+                            <div
+                                class="absolute top-1/2 left-1/4 w-8 h-8 bg-black/10 rounded-full shadow-[inset_1px_1px_3px_rgba(0,0,0,0.4)]">
+                            </div>
+                            <div
+                                class="absolute bottom-16 right-16 w-20 h-20 bg-black/10 rounded-full shadow-[inset_3px_3px_6px_rgba(0,0,0,0.4)]">
+                            </div>
+                            <div
+                                class="absolute top-10 right-20 w-6 h-6 bg-black/10 rounded-full shadow-[inset_1px_1px_2px_rgba(0,0,0,0.4)]">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -97,28 +138,33 @@
         <!-- About & Education Section -->
         <section id="about" class="py-20 px-6 max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-12 gap-8">
-                
+
                 <!-- Profile Card -->
-                <div class="lg:col-span-4 bg-[#251042] rounded-3xl p-8 flex flex-col items-center text-center border border-white/5 shadow-xl">
+                <div
+                    class="lg:col-span-4 bg-[#251042] rounded-3xl p-8 flex flex-col items-center text-center border border-white/5 shadow-xl">
                     <div class="w-48 h-48 rounded-full bg-gradient-to-b from-purple-500 to-indigo-900 p-1 mb-6">
-                        <div class="w-full h-full rounded-full bg-gray-900 flex items-center justify-center overflow-hidden relative">
+                        <div
+                            class="w-full h-full rounded-full bg-gray-900 flex items-center justify-center overflow-hidden relative">
                             <img src="manojprofie.jpg" alt="Manoj Kumar M" class="w-full h-full object-cover">
                         </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-2">Manoj Kumar M</h3>
-                    <p class="text-purple-300 mb-6 text-sm">Full Stack Developer | AI & ML Enthusiast</p>
+                    <p class="text-purple-300 mb-6 text-sm">Software Development Engineer (SDE) Aspirant</p>
                     <div class="flex gap-4 w-full">
-                        <a href="MANOJ_KUMAR RESUME.pdf" target="_blank" class="flex-1 py-2 bg-[#8b5cf6] rounded-lg text-sm font-medium hover:bg-[#7c3aed] transition-colors text-center">Resume</a>
-                        <a href="mailto:manojmanoharan0007@gmail.com" class="flex-1 py-2 border border-gray-600 rounded-lg text-sm font-medium hover:bg-white/5 transition-colors">Contact</a>
+                        <a href="MANOJKUMAR M SDE RESUME.pdf" target="_blank"
+                            class="flex-1 py-2 bg-[#8b5cf6] rounded-lg text-sm font-medium hover:bg-[#7c3aed] transition-colors text-center">Resume</a>
+                        <a href="#contact"
+                            class="flex-1 py-2 border border-gray-600 rounded-lg text-sm font-medium hover:bg-white/5 transition-colors text-center flex items-center justify-center">Contact</a>
                     </div>
-                    <div class="mt-8 flex justify-between w-full text-xs text-gray-400 uppercase tracking-widest border-t border-white/10 pt-6">
+                    <div
+                        class="mt-8 flex justify-between w-full text-xs text-gray-400 uppercase tracking-widest border-t border-white/10 pt-6">
                         <div>
                             <p class="mb-1">Experience</p>
-                            <p class="text-white font-bold">Fresher</p>
+                            <p class="text-white font-bold">SDE Intern</p>
                         </div>
                         <div class="text-right">
                             <p class="mb-1">Location</p>
-                            <p class="text-white font-bold">Tamilnadu</p>
+                            <p class="text-white font-bold">Coimbatore</p>
                         </div>
                     </div>
                 </div>
@@ -127,133 +173,389 @@
                 <div class="lg:col-span-8 space-y-8">
                     <!-- About Me -->
                     <div class="bg-[#251042] rounded-3xl p-8 border border-white/5 shadow-xl">
-                        <h3 class="text-2xl font-bold mb-4">About Me</h3>
-                        <p class="text-gray-400 leading-relaxed">
-                            Enthusiastic full-stack developer and Python-based machine learning enthusiast with real experience in integrating
-                            trained ML models into production-ready applications. Fast learner with strong problem-solving skills and a drive
-                            to build impactful AI solutions.
+                        <h3 class="text-2xl font-bold mb-4">Profile Summary</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm md:text-base">
+                            Software Development Engineer (SDE) aspirant with hands-on experience in designing and
+                            developing full-stack web applications using React.js, Node.js, Express.js, Flask, and
+                            MongoDB. Proficient in Python, JavaScript, SQL, RESTful API development, JWT authentication,
+                            and database design. Passionate about backend development, scalable distributed systems, and
+                            building secure, reliable, and maintainable software with continuous learning mindset.
                         </p>
                     </div>
 
                     <!-- Education -->
                     <div class="bg-[#251042] rounded-3xl p-8 border border-white/5 shadow-xl">
-                        <h3 class="text-2xl font-bold mb-6">Education & Timeline</h3>
+                        <h3 class="text-2xl font-bold mb-6">Education & Achievements</h3>
                         <div class="space-y-8">
                             <!-- Edu Item 1 -->
                             <div class="relative pl-8 border-l-2 border-purple-500/30">
-                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]"></div>
-                                <h4 class="text-lg font-bold text-white">B.Tech — AI & ML</h4>
-                                <p class="text-purple-300 text-sm mb-2 uppercase tracking-wide">Sri Shakthi Institute of Engineering and Technology • 2023 - 2027</p>
-                                <p class="text-gray-400 text-sm">Focused on algorithms, ML fundamentals and full-stack projects.</p>
-                                <span class="inline-block mt-2 px-2 py-1 bg-purple-900/50 rounded text-xs text-purple-200 border border-purple-500/20">
-                                    Score: 7.51 CGPA
+                                <div
+                                    class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]">
+                                </div>
+                                <h4 class="text-lg font-bold text-white">B.Tech — Artificial Intelligence and Machine
+                                    Learning</h4>
+                                <p class="text-purple-300 text-sm mb-2 uppercase tracking-wide">Sri Shakthi Institute of
+                                    Engineering and Technology • 2023 - 2027</p>
+                                <p class="text-gray-400 text-sm">Focused on OOP, DBMS, Data Structures, Algorithms,
+                                    Machine Learning fundamentals & Full Stack Engineering.</p>
+                                <span
+                                    class="inline-block mt-2 px-3 py-1 bg-purple-900/50 rounded-lg text-xs font-semibold text-purple-200 border border-purple-500/20">
+                                    Score: 77 %
                                 </span>
                             </div>
                             <!-- Edu Item 2 -->
                             <div class="relative pl-8 border-l-2 border-purple-500/30">
-                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]"></div>
+                                <div
+                                    class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]">
+                                </div>
                                 <h4 class="text-lg font-bold text-white">HSC</h4>
-                                <p class="text-purple-300 text-sm mb-2 uppercase tracking-wide">Trinity Matric Higher Secondary School • 2023</p>
-                                <p class="text-gray-400 text-sm">Completed Higher Secondary Education.</p>
-                                <span class="inline-block mt-2 px-2 py-1 bg-purple-900/50 rounded text-xs text-purple-200 border border-purple-500/20">
+                                <p class="text-purple-300 text-sm mb-2 uppercase tracking-wide">Trinity Matriculation
+                                    Higher Secondary School • 2023</p>
+                                <p class="text-gray-400 text-sm">Higher Secondary Certificate Examination.</p>
+                                <span
+                                    class="inline-block mt-2 px-3 py-1 bg-purple-900/50 rounded-lg text-xs font-semibold text-purple-200 border border-purple-500/20">
                                     Score: 86.33%
                                 </span>
+                            </div>
+                            <!-- Achievement Item -->
+                            <div class="relative pl-8 border-l-2 border-pink-500/30">
+                                <div
+                                    class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-pink-500 shadow-[0_0_10px_#ec4899]">
+                                </div>
+                                <h4 class="text-lg font-bold text-white">Finalist — Flinders University AI Competition
+                                    (2026)</h4>
+                                <p class="text-pink-300 text-sm mb-1 uppercase tracking-wide">Frontend Developer •
+                                    Coimbatore</p>
+                                <p class="text-gray-400 text-sm">Contributed as a Frontend Developer by designing and
+                                    developing the team's web application, leading the team to the finalist stage.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Quick Skills -->
                     <div class="bg-[#251042] rounded-3xl p-8 border border-white/5 shadow-xl">
-                        <h3 class="text-xl font-bold mb-4">Quick Skills</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-[#3b0764] rounded-lg text-sm text-purple-200 font-medium">Python</span>
-                            <span class="px-4 py-2 bg-[#3b0764] rounded-lg text-sm text-purple-200 font-medium">React</span>
-                            <span class="px-4 py-2 bg-[#3b0764] rounded-lg text-sm text-purple-200 font-medium">Flask</span>
-                            <span class="px-4 py-2 bg-[#3b0764] rounded-lg text-sm text-purple-200 font-medium">MongoDB</span>
-                            <span class="px-4 py-2 bg-[#3b0764] rounded-lg text-sm text-purple-200 font-medium">TensorFlow</span>
-                            <span class="px-4 py-2 bg-[#3b0764] rounded-lg text-sm text-purple-200 font-medium">SQL</span>
+                        <h3 class="text-xl font-bold mb-4">Core Competencies</h3>
+                        <div class="flex flex-wrap gap-2.5">
+                            <span
+                                class="px-3.5 py-1.5 bg-[#3b0764] rounded-lg text-xs text-purple-200 font-medium border border-purple-500/20">Python</span>
+                            <span
+                                class="px-3.5 py-1.5 bg-[#3b0764] rounded-lg text-xs text-purple-200 font-medium border border-purple-500/20">JavaScript</span>
+                            <span
+                                class="px-3.5 py-1.5 bg-[#3b0764] rounded-lg text-xs text-purple-200 font-medium border border-purple-500/20">React.js</span>
+                            <span
+                                class="px-3.5 py-1.5 bg-[#3b0764] rounded-lg text-xs text-purple-200 font-medium border border-purple-500/20">Node.js</span>
+                            <span
+                                class="px-3.5 py-1.5 bg-[#3b0764] rounded-lg text-xs text-purple-200 font-medium border border-purple-500/20">Express.js</span>
+                            <span
+                                class="px-3.5 py-1.5 bg-[#3b0764] rounded-lg text-xs text-purple-200 font-medium border border-purple-500/20">Flask</span>
+                            <span
+                                class="px-3.5 py-1.5 bg-[#3b0764] rounded-lg text-xs text-purple-200 font-medium border border-purple-500/20">MongoDB</span>
+                            <span
+                                class="px-3.5 py-1.5 bg-[#3b0764] rounded-lg text-xs text-purple-200 font-medium border border-purple-500/20">MySQL</span>
+                            <span
+                                class="px-3.5 py-1.5 bg-[#3b0764] rounded-lg text-xs text-purple-200 font-medium border border-purple-500/20">REST
+                                APIs</span>
+                            <span
+                                class="px-3.5 py-1.5 bg-[#3b0764] rounded-lg text-xs text-purple-200 font-medium border border-purple-500/20">OOP
+                                & DBMS</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 px-6 max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
+                <span>Work Experience</span>
+                <span class="h-px bg-white/10 flex-1"></span>
+            </h2>
+
+            <!-- Timeline Item -->
+            <div class="relative pl-8 md:pl-10 border-l border-purple-500/20">
+                <!-- Timeline Node Marker -->
+                <div
+                    class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-[#100521] border border-purple-500/40 flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                    <div class="w-2.5 h-2.5 rounded-full bg-purple-400"></div>
+                </div>
+
+                <!-- Minimal Glassmorphic Experience Card -->
+                <div
+                    class="bg-[#1c0b36]/90 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/10 shadow-2xl transition-all duration-300 hover:border-purple-500/30 hover:shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+
+                    <!-- Header with Company Logo -->
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5 pb-5 border-b border-white/5">
+                        <div class="flex items-center gap-4">
+                            <!-- Company Logo Avatar -->
+                            <div
+                                class="w-12 h-12 rounded-xl bg-white p-1 border border-purple-500/30 flex items-center justify-center shrink-0 overflow-hidden shadow-md">
+                                <img src="cocoveera_logo.webp" alt="Cocoveera Logo"
+                                    class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <h3 class="text-xl font-bold text-white tracking-tight">Full Stack Developer Intern
+                                    </h3>
+                                    <span
+                                        class="px-2.5 py-0.5 bg-purple-900/50 text-purple-300 text-[11px] font-medium rounded-full border border-purple-500/30">Production
+                                        Internship</span>
+                                </div>
+                                <p class="text-purple-400 text-sm font-medium">Cocoveera Pvt. Ltd.</p>
+                            </div>
+                        </div>
+
+                        <!-- Date & Location -->
+                        <div class="text-xs text-gray-400 font-medium sm:text-right space-y-1">
+                            <div class="flex items-center sm:justify-end gap-1.5"><i data-lucide="calendar"
+                                    class="w-3.5 h-3.5 text-purple-400"></i> May 2026 – July 2026</div>
+                            <div class="flex items-center sm:justify-end gap-1.5"><i data-lucide="map-pin"
+                                    class="w-3.5 h-3.5 text-purple-400"></i> Coimbatore, Tamil Nadu</div>
+                        </div>
+                    </div>
+
+                    <!-- Company Short Description -->
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Production-ready B2B export platform engineered for international coconut substrate supply
+                        chains and global enterprise trade.
+                    </p>
+
+                    <!-- What I Built -->
+                    <div class="mb-6">
+                        <h4 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">What I Built</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-[#100521] rounded-lg text-xs font-medium text-gray-200 border border-white/5">•
+                                MERN B2B Export Platform</span>
+                            <span
+                                class="px-3 py-1 bg-[#100521] rounded-lg text-xs font-medium text-gray-200 border border-white/5">•
+                                Customer Dashboard</span>
+                            <span
+                                class="px-3 py-1 bg-[#100521] rounded-lg text-xs font-medium text-gray-200 border border-white/5">•
+                                Admin Dashboard</span>
+                            <span
+                                class="px-3 py-1 bg-[#100521] rounded-lg text-xs font-medium text-gray-200 border border-white/5">•
+                                RFQ Workflow</span>
+                            <span
+                                class="px-3 py-1 bg-[#100521] rounded-lg text-xs font-medium text-gray-200 border border-white/5">•
+                                Quotation Management</span>
+                            <span
+                                class="px-3 py-1 bg-[#100521] rounded-lg text-xs font-medium text-gray-200 border border-white/5">•
+                                Export Order System</span>
+                            <span
+                                class="px-3 py-1 bg-[#100521] rounded-lg text-xs font-medium text-gray-200 border border-white/5">•
+                                JWT Authentication</span>
+                            <span
+                                class="px-3 py-1 bg-[#100521] rounded-lg text-xs font-medium text-gray-200 border border-white/5">•
+                                Payment Gateway Integration</span>
+                        </div>
+                    </div>
+
+                    <!-- Single Brand Logo Photo Card -->
+                    <div class="mb-6">
+                        <div class="relative group/slide overflow-hidden rounded-xl border border-white/10 cursor-pointer h-44 sm:h-52 bg-white flex items-center justify-center p-6"
+                            onclick="openLightbox('cocoveera_logo.webp', 'Cocoveera — From Coconut to Growth')">
+                            <img src="cocoveera_logo.webp" alt="Cocoveera Logo"
+                                class="max-h-full max-w-full object-contain group-hover/slide:scale-105 transition-transform duration-300">
+                            <div
+                                class="absolute inset-0 bg-black/30 opacity-0 group-hover/slide:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+                                <span
+                                    class="text-xs text-white bg-purple-600/90 px-3 py-1.5 rounded-full font-medium flex items-center gap-1.5"><i
+                                        data-lucide="maximize-2" class="w-3.5 h-3.5"></i> View Full Logo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Small Action Icon Buttons -->
+                    <div class="flex items-center gap-3 mb-6">
+                        <a href="https://cocoveera.com" target="_blank"
+                            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-purple-600/80 hover:bg-purple-600 text-white rounded-lg text-xs font-medium transition-all hover:scale-105">
+                            <i data-lucide="globe" class="w-3.5 h-3.5"></i> Visit Cocoveera
+                        </a>
+                        <a href="https://github.com/manojmanoharan2005-dot/cocoveera" target="_blank"
+                            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-lg text-xs font-medium border border-white/10 transition-all hover:scale-105">
+                            <i data-lucide="github" class="w-3.5 h-3.5"></i> View GitHub
+                        </a>
+                    </div>
+
+                    <!-- Technology Chips -->
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span
+                            class="text-[11px] px-2 py-0.5 bg-[#100521] text-gray-400 rounded border border-white/5">React.js</span>
+                        <span
+                            class="text-[11px] px-2 py-0.5 bg-[#100521] text-gray-400 rounded border border-white/5">Node.js</span>
+                        <span
+                            class="text-[11px] px-2 py-0.5 bg-[#100521] text-gray-400 rounded border border-white/5">Express.js</span>
+                        <span
+                            class="text-[11px] px-2 py-0.5 bg-[#100521] text-gray-400 rounded border border-white/5">MongoDB</span>
+                        <span
+                            class="text-[11px] px-2 py-0.5 bg-[#100521] text-gray-400 rounded border border-white/5">JWT</span>
+                        <span
+                            class="text-[11px] px-2 py-0.5 bg-[#100521] text-gray-400 rounded border border-white/5">REST
+                            API</span>
+                        <span
+                            class="text-[11px] px-2 py-0.5 bg-[#100521] text-gray-400 rounded border border-white/5">Razorpay
+                            / Stripe / PayPal</span>
+                        <span
+                            class="text-[11px] px-2 py-0.5 bg-[#100521] text-gray-400 rounded border border-white/5">Cloudinary</span>
+                        <span
+                            class="text-[11px] px-2 py-0.5 bg-[#100521] text-gray-400 rounded border border-white/5">Brevo</span>
+                    </div>
+
+                    <!-- Impact Section -->
+                    <div class="pt-4 border-t border-white/5">
+                        <h4 class="text-xs font-semibold uppercase tracking-wider text-purple-300 mb-2">Impact</h4>
+                        <ul class="grid sm:grid-cols-2 gap-2 text-xs text-gray-300">
+                            <li class="flex items-center gap-2"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Built production-ready MERN
+                                features.</li>
+                            <li class="flex items-center gap-2"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Helped launch the platform
+                                for production.</li>
+                            <li class="flex items-center gap-2"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Fixed production bugs and
+                                optimized performance.</li>
+                            <li class="flex items-center gap-2"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Developed secure backend APIs
+                                and authentication.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <!-- Detailed Skills Section -->
         <section id="skills" class="py-20 px-6 max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-10">Detailed Skills</h2>
+            <h2 class="text-3xl font-bold mb-10">Technical Skills</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Frontend -->
-                <div class="bg-[#251042] rounded-3xl p-8 border border-white/5">
+                <!-- Languages & Frontend -->
+                <div class="bg-[#251042] rounded-3xl p-8 border border-white/5 shadow-xl">
                     <div class="flex justify-between items-center mb-8">
-                        <h3 class="text-xl font-bold">Frontend</h3>
-                        <span class="text-gray-400 text-sm">(4)</span>
+                        <h3 class="text-xl font-bold">Languages & Frontend</h3>
+                        <span class="text-purple-300 text-sm font-semibold">(5)</span>
                     </div>
                     <!-- Bars -->
                     <div class="mb-6">
-                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">HTML</span><span class="text-gray-400">95%</span></div>
-                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden"><div class="h-full bg-blue-500 rounded-full" style="width: 95%"></div></div>
+                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">Python</span><span
+                                class="text-gray-400">90%</span></div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-blue-500 rounded-full" style="width: 90%"></div>
+                        </div>
                     </div>
                     <div class="mb-6">
-                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">CSS</span><span class="text-gray-400">90%</span></div>
-                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden"><div class="h-full bg-blue-500 rounded-full" style="width: 90%"></div></div>
+                        <div class="flex justify-between mb-2"><span
+                                class="font-semibold text-white">JavaScript</span><span class="text-gray-400">88%</span>
+                        </div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-blue-500 rounded-full" style="width: 88%"></div>
+                        </div>
                     </div>
                     <div class="mb-6">
-                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">JavaScript</span><span class="text-gray-400">88%</span></div>
-                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden"><div class="h-full bg-blue-500 rounded-full" style="width: 88%"></div></div>
+                        <div class="flex justify-between mb-2"><span
+                                class="font-semibold text-white">React.js</span><span class="text-gray-400">88%</span>
+                        </div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-blue-500 rounded-full" style="width: 88%"></div>
+                        </div>
                     </div>
                     <div class="mb-6">
-                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">React</span><span class="text-gray-400">85%</span></div>
-                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden"><div class="h-full bg-blue-500 rounded-full" style="width: 85%"></div></div>
+                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">HTML5 &
+                                CSS3</span><span class="text-gray-400">92%</span></div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-blue-500 rounded-full" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">Tailwind
+                                CSS</span><span class="text-gray-400">85%</span></div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-blue-500 rounded-full" style="width: 85%"></div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Backend -->
-                <div class="bg-[#251042] rounded-3xl p-8 border border-white/5">
+                <!-- Backend & Frameworks -->
+                <div class="bg-[#251042] rounded-3xl p-8 border border-white/5 shadow-xl">
                     <div class="flex justify-between items-center mb-8">
-                        <h3 class="text-xl font-bold">Backend</h3>
-                        <span class="text-gray-400 text-sm">(4)</span>
+                        <h3 class="text-xl font-bold">Backend & Frameworks</h3>
+                        <span class="text-purple-300 text-sm font-semibold">(4)</span>
                     </div>
                     <!-- Bars -->
                     <div class="mb-6">
-                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">Flask</span><span class="text-gray-400">80%</span></div>
-                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden"><div class="h-full bg-purple-500 rounded-full" style="width: 80%"></div></div>
+                        <div class="flex justify-between mb-2"><span
+                                class="font-semibold text-white">Node.js</span><span class="text-gray-400">85%</span>
+                        </div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-purple-500 rounded-full" style="width: 85%"></div>
+                        </div>
                     </div>
                     <div class="mb-6">
-                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">Node.js</span><span class="text-gray-400">80%</span></div>
-                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden"><div class="h-full bg-purple-500 rounded-full" style="width: 80%"></div></div>
+                        <div class="flex justify-between mb-2"><span
+                                class="font-semibold text-white">Express.js</span><span class="text-gray-400">85%</span>
+                        </div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-purple-500 rounded-full" style="width: 85%"></div>
+                        </div>
                     </div>
                     <div class="mb-6">
-                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">MongoDB</span><span class="text-gray-400">78%</span></div>
-                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden"><div class="h-full bg-purple-500 rounded-full" style="width: 78%"></div></div>
+                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">Flask</span><span
+                                class="text-gray-400">82%</span></div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-purple-500 rounded-full" style="width: 82%"></div>
+                        </div>
                     </div>
                     <div class="mb-6">
-                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">SQL</span><span class="text-gray-400">72%</span></div>
-                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden"><div class="h-full bg-purple-500 rounded-full" style="width: 72%"></div></div>
+                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">RESTful APIs &
+                                JWT</span><span class="text-gray-400">90%</span></div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-purple-500 rounded-full" style="width: 90%"></div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- AI / ML -->
-                <div class="bg-[#251042] rounded-3xl p-8 border border-white/5">
+                <!-- Databases, Core CS & Tools -->
+                <div class="bg-[#251042] rounded-3xl p-8 border border-white/5 shadow-xl">
                     <div class="flex justify-between items-center mb-8">
-                        <h3 class="text-xl font-bold">AI / ML & Tools</h3>
-                        <span class="text-gray-400 text-sm">(4)</span>
+                        <h3 class="text-xl font-bold">Databases & Tools</h3>
+                        <span class="text-purple-300 text-sm font-semibold">(5)</span>
                     </div>
                     <!-- Bars -->
                     <div class="mb-6">
-                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">Python</span><span class="text-gray-400">90%</span></div>
-                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden"><div class="h-full bg-pink-500 rounded-full" style="width: 90%"></div></div>
+                        <div class="flex justify-between mb-2"><span
+                                class="font-semibold text-white">MongoDB</span><span class="text-gray-400">85%</span>
+                        </div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-pink-500 rounded-full" style="width: 85%"></div>
+                        </div>
                     </div>
                     <div class="mb-6">
-                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">TensorFlow</span><span class="text-gray-400">70%</span></div>
-                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden"><div class="h-full bg-pink-500 rounded-full" style="width: 70%"></div></div>
+                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">SQL /
+                                MySQL</span><span class="text-gray-400">80%</span></div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-pink-500 rounded-full" style="width: 80%"></div>
+                        </div>
                     </div>
                     <div class="mb-6">
-                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">NLP</span><span class="text-gray-400">75%</span></div>
-                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden"><div class="h-full bg-pink-500 rounded-full" style="width: 75%"></div></div>
+                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">OOP &
+                                DBMS</span><span class="text-gray-400">85%</span></div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-pink-500 rounded-full" style="width: 85%"></div>
+                        </div>
                     </div>
                     <div class="mb-6">
-                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">Deep Learning</span><span class="text-gray-400">65%</span></div>
-                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden"><div class="h-full bg-pink-500 rounded-full" style="width: 65%"></div></div>
+                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">Git &
+                                GitHub</span><span class="text-gray-400">88%</span></div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-pink-500 rounded-full" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2"><span class="font-semibold text-white">Postman & MongoDB
+                                Atlas</span><span class="text-gray-400">85%</span></div>
+                        <div class="h-2.5 bg-gray-800 rounded-full w-full overflow-hidden">
+                            <div class="h-full bg-pink-500 rounded-full" style="width: 85%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -263,52 +565,85 @@
         <section id="projects" class="py-20 px-6 max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold mb-10">Featured Projects</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                
+
                 <!-- Smart Farming Assistant Project -->
-                <div class="bg-[#251042] rounded-3xl overflow-hidden border border-white/5 group hover:-translate-y-2 transition-transform duration-300 shadow-xl flex flex-col">
+                <div
+                    class="bg-[#251042] rounded-3xl overflow-hidden border border-white/5 group hover:-translate-y-2 transition-transform duration-300 shadow-xl flex flex-col">
                     <div class="h-56 bg-gray-800 relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#251042] to-transparent z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1000&auto=format&fit=crop" alt="Smart Farming" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs font-bold text-white border border-white/10">Featured</span>
+                        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1000&auto=format&fit=crop"
+                            alt="Smart Farming Assistant"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span
+                            class="absolute top-4 left-4 z-20 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs font-bold text-white border border-white/10">AI
+                            & Web</span>
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="text-xl font-bold mb-3">SMART FARMING ASSISTANT</h3>
-                        <p class="text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed flex-1">
-                            Crop advice & management dashboard built with Flask, HTML/CSS and MongoDB. Includes sensor data ingestion and simple automation scripts.
+                        <p class="text-gray-300 text-sm mb-6 leading-relaxed flex-1">
+                            AI-powered web application providing crop recommendations, disease identification,
+                            fertilizer suggestions, weather insights, and daily market price analysis for farmers by
+                            integrating Gemini API, weather services, and MongoDB.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs px-2 py-1 bg-[#100521] text-gray-300 rounded border border-white/5">Flask</span>
-                            <span class="text-xs px-2 py-1 bg-[#100521] text-gray-300 rounded border border-white/5">HTML</span>
-                            <span class="text-xs px-2 py-1 bg-[#100521] text-gray-300 rounded border border-white/5">MongoDB</span>
+                            <span
+                                class="text-xs px-2.5 py-1 bg-[#100521] text-gray-300 rounded border border-white/5 font-medium">Python</span>
+                            <span
+                                class="text-xs px-2.5 py-1 bg-[#100521] text-gray-300 rounded border border-white/5 font-medium">Flask</span>
+                            <span
+                                class="text-xs px-2.5 py-1 bg-[#100521] text-gray-300 rounded border border-white/5 font-medium">MongoDB</span>
+                            <span
+                                class="text-xs px-2.5 py-1 bg-[#100521] text-gray-300 rounded border border-white/5 font-medium">Gemini
+                                API</span>
                         </div>
                         <div class="flex gap-2">
-                            <a href="https://github.com/manojmanoharan2005-dot/smartfarmingassistant.git" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2.5 bg-white/5 hover:bg-white/10 rounded-lg text-sm font-medium transition-colors border border-white/5"><i data-lucide="github" class="w-4 h-4"></i> Code</a>
-                            <a href="https://smartfarmingassistant-pw45.onrender.com/" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2.5 bg-[#8b5cf6] hover:bg-[#7c3aed] rounded-lg text-sm font-medium transition-colors"><i data-lucide="external-link" class="w-4 h-4"></i> Live</a>
+                            <a href="https://github.com/manojmanoharan2005-dot/smartfarmingassistant.git"
+                                target="_blank"
+                                class="flex-1 flex items-center justify-center gap-1 py-2.5 bg-white/5 hover:bg-white/10 rounded-lg text-sm font-medium transition-colors border border-white/5"><i
+                                    data-lucide="github" class="w-4 h-4"></i> Code</a>
+                            <a href="https://smartfarmingassistant-pw45.onrender.com/" target="_blank"
+                                class="flex-1 flex items-center justify-center gap-1 py-2.5 bg-[#8b5cf6] hover:bg-[#7c3aed] rounded-lg text-sm font-medium transition-colors"><i
+                                    data-lucide="external-link" class="w-4 h-4"></i> Live</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Fertilizer Mart E-commerce Project -->
-                <div class="bg-[#251042] rounded-3xl overflow-hidden border border-white/5 group hover:-translate-y-2 transition-transform duration-300 shadow-xl flex flex-col">
+                <!-- AgriStore Agricultural Marketplace Project -->
+                <div
+                    class="bg-[#251042] rounded-3xl overflow-hidden border border-white/5 group hover:-translate-y-2 transition-transform duration-300 shadow-xl flex flex-col">
                     <div class="h-56 bg-gray-800 relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#251042] to-transparent z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=1000&auto=format&fit=crop" alt="Fertilizer E-commerce" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs font-bold text-white border border-white/10">Featured</span>
+                        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=1000&auto=format&fit=crop"
+                            alt="AgriStore Marketplace"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span
+                            class="absolute top-4 left-4 z-20 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs font-bold text-white border border-white/10">Full
+                            Stack MERN</span>
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h3 class="text-xl font-bold mb-3">AGRI-STORE</h3>
-                        <p class="text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed flex-1">
-                            Full-featured e-commerce platform for agricultural fertilizers and farming supplies. Includes product catalog, shopping cart, user authentication, and order management system.
+                        <h3 class="text-xl font-bold mb-3">AGRISTORE — AGRICULTURAL MARKETPLACE</h3>
+                        <p class="text-gray-300 text-sm mb-6 leading-relaxed flex-1">
+                            Full-stack agricultural marketplace with secure JWT authentication, product catalog,
+                            inventory management, Razorpay payment gateway integration, and responsive admin dashboard
+                            for orders and transactions.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs px-2 py-1 bg-[#100521] text-gray-300 rounded border border-white/5">MongoDB</span>
-                            <span class="text-xs px-2 py-1 bg-[#100521] text-gray-300 rounded border border-white/5">Express</span>
-                            <span class="text-xs px-2 py-1 bg-[#100521] text-gray-300 rounded border border-white/5">React</span>
-                            <span class="text-xs px-2 py-1 bg-[#100521] text-gray-300 rounded border border-white/5">Node.js</span>
+                            <span
+                                class="text-xs px-2.5 py-1 bg-[#100521] text-gray-300 rounded border border-white/5 font-medium">React.js</span>
+                            <span
+                                class="text-xs px-2.5 py-1 bg-[#100521] text-gray-300 rounded border border-white/5 font-medium">Node.js</span>
+                            <span
+                                class="text-xs px-2.5 py-1 bg-[#100521] text-gray-300 rounded border border-white/5 font-medium">Express.js</span>
+                            <span
+                                class="text-xs px-2.5 py-1 bg-[#100521] text-gray-300 rounded border border-white/5 font-medium">MongoDB</span>
                         </div>
                         <div class="flex gap-2">
-                            <a href="https://github.com/manojmanoharan2005-dot/e-commerce.git" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2.5 bg-white/5 hover:bg-white/10 rounded-lg text-sm font-medium transition-colors border border-white/5"><i data-lucide="github" class="w-4 h-4"></i> Code</a>
-                            <a href="https://agri-e-commerce.vercel.app" target="_blank" class="flex-1 flex items-center justify-center gap-1 py-2.5 bg-[#8b5cf6] hover:bg-[#7c3aed] rounded-lg text-sm font-medium transition-colors"><i data-lucide="external-link" class="w-4 h-4"></i> Live</a>
+                            <a href="https://github.com/manojmanoharan2005-dot/e-commerce.git" target="_blank"
+                                class="flex-1 flex items-center justify-center gap-1 py-2.5 bg-white/5 hover:bg-white/10 rounded-lg text-sm font-medium transition-colors border border-white/5"><i
+                                    data-lucide="github" class="w-4 h-4"></i> Code</a>
+                            <a href="https://agri-e-commerce.vercel.app" target="_blank"
+                                class="flex-1 flex items-center justify-center gap-1 py-2.5 bg-[#8b5cf6] hover:bg-[#7c3aed] rounded-lg text-sm font-medium transition-colors"><i
+                                    data-lucide="external-link" class="w-4 h-4"></i> Live</a>
                         </div>
                     </div>
                 </div>
@@ -322,38 +657,53 @@
                 <div class="relative z-10">
                     <h2 class="text-3xl font-bold mb-2">Contact</h2>
                     <p class="text-gray-400 mb-8">Have a project or question? Send a message — I'll reply ASAP.</p>
-                    
-                    <form action="https://formspree.io/f/manojmanoharan0007@gmail.com" method="POST" class="space-y-6" autocomplete="off">
+
+                    <form action="https://formsubmit.co/ajax/manojmanoharan0007@gmail.com" method="POST"
+                        class="space-y-6" autocomplete="off">
                         <div>
                             <label class="block text-sm text-gray-400 mb-2">Name</label>
-                            <input type="text" name="name" placeholder="Your name" required autocomplete="off" class="w-full bg-[#100521] border border-white/10 rounded-lg p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:outline-none transition-colors">
+                            <input type="text" name="name" placeholder="Your name" required autocomplete="off"
+                                class="w-full bg-[#100521] border border-white/10 rounded-lg p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:outline-none transition-colors">
                         </div>
                         <div>
                             <label class="block text-sm text-gray-400 mb-2">Email</label>
-                            <input type="email" name="_replyto" placeholder="you@domain.com" required autocomplete="off" class="w-full bg-[#100521] border border-white/10 rounded-lg p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:outline-none transition-colors">
+                            <input type="email" name="email" placeholder="you@domain.com" required autocomplete="off"
+                                class="w-full bg-[#100521] border border-white/10 rounded-lg p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:outline-none transition-colors">
                         </div>
                         <div>
                             <label class="block text-sm text-gray-400 mb-2">Subject</label>
-                            <input type="text" name="_subject" value="Portfolio Contact Form Message" autocomplete="off" class="w-full bg-[#100521] border border-white/10 rounded-lg p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:outline-none transition-colors">
+                            <input type="text" name="subject" value="Portfolio Contact Form Message" autocomplete="off"
+                                class="w-full bg-[#100521] border border-white/10 rounded-lg p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:outline-none transition-colors">
                         </div>
                         <div>
                             <label class="block text-sm text-gray-400 mb-2">Message</label>
-                            <textarea rows="5" name="message" placeholder="Tell me about your project..." required autocomplete="off" class="w-full bg-[#100521] border border-white/10 rounded-lg p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:outline-none transition-colors resize-none"></textarea>
+                            <textarea rows="5" name="message" placeholder="Tell me about your project..." required
+                                autocomplete="off"
+                                class="w-full bg-[#100521] border border-white/10 rounded-lg p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:outline-none transition-colors resize-none"></textarea>
                         </div>
-                        <input type="hidden" name="_next" value="https://manojmanoharan2005-dot.github.io/portfolio2.0/thanks.html">
-                        <button type="submit" class="px-8 py-3 bg-[#8b5cf6] hover:bg-[#7c3aed] text-white rounded-lg font-medium transition-colors shadow-lg shadow-purple-900/50">
+                        <input type="hidden" name="_next"
+                            value="https://manojmanoharan2005-dot.github.io/portfolio2.0/thanks.html">
+                        <button type="submit"
+                            class="px-8 py-3 bg-[#8b5cf6] hover:bg-[#7c3aed] text-white rounded-lg font-medium transition-colors shadow-lg shadow-purple-900/50">
                             Send Message
                         </button>
                     </form>
 
-                    <div class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
+                    <div
+                        class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
                         <div class="flex flex-col gap-2">
-                            <span class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> manojmanoharan0007@gmail.com</span>
-                            <span class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> +91 6382801974</span>
+                            <span class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>
+                                manojmanoharan0007@gmail.com</span>
+                            <span class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> +91
+                                6382801974</span>
                         </div>
                         <div class="flex gap-6 mt-4 md:mt-0">
-                            <a href="https://github.com/manojmanoharan2005-dot" target="_blank" class="hover:text-white transition-colors"><i data-lucide="github" class="w-6 h-6"></i></a>
-                            <a href="https://www.linkedin.com/in/manoj-kumar-m-70a003301" target="_blank" class="hover:text-white transition-colors"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                            <a href="https://github.com/manojmanoharan2005-dot" target="_blank"
+                                class="hover:text-white transition-colors"><i data-lucide="github"
+                                    class="w-6 h-6"></i></a>
+                            <a href="https://www.linkedin.com/in/manoj-kumar-m-70a003301" target="_blank"
+                                class="hover:text-white transition-colors"><i data-lucide="linkedin"
+                                    class="w-6 h-6"></i></a>
                         </div>
                     </div>
                 </div>
@@ -367,7 +717,24 @@
 
     </div>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal"
+        class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 transition-all duration-300 opacity-0"
+        onclick="closeLightbox(event)">
+        <div class="relative max-w-4xl w-full bg-[#1b0b33] rounded-2xl border border-white/10 overflow-hidden shadow-2xl p-4 flex flex-col items-center"
+            onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors z-10">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <img id="lightbox-img" src="" alt="Full view"
+                class="max-h-[75vh] w-auto object-contain rounded-xl border border-white/5 shadow-md">
+            <p id="lightbox-caption" class="text-gray-300 text-sm mt-4 text-center font-medium px-4"></p>
+        </div>
+    </div>
+
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
 </body>
+
 </html>
